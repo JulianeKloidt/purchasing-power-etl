@@ -26,3 +26,6 @@ src/*.egg-info/
 
 # Scratch files
 scratch/
+
+# Settings
+src/config/settings.py
