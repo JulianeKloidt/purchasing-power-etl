@@ -1,5 +1,7 @@
 # Purchasing Power ETL
 
+![CI](https://github.com/julianekloidt/purchasing-power-etl/actions/workflows/ci.yml/badge.svg)
+
 A Python-based ETL and analytics pipeline that retrieves Purchasing Power Parity (PPP) and Consumer Price Index (CPI) data from the World Bank API, stores the data in PostgreSQL, and provides reusable analytical methods for comparing monetary values across countries and time.
 
 ---
@@ -156,6 +158,40 @@ This project emphasizes:
 * Automated testing
 * Scalability for additional World Bank indicators
 
+
+---
+
+## CI / Automated Testing
+
+This project uses GitHub Actions to automatically run the test suite on every push and pull request to the main branch.
+
+The CI pipeline:
+
+* Spins up a PostgreSQL service container
+* Installs project dependencies
+* Runs the full pytest test suite
+* Validates database integrity and ETL transformations
+* CI Configuration
+
+The workflow is defined in:
+
+```
+.github/workflows/ci.yml
+```
+
+Continuous Integration ensures that:
+
+* All ETL transformations remain stable
+* Database interactions behave as expected
+* Changes do not break existing functionality
+* The project remains reproducible across environments
+* Running tests locally
+
+You can also run the full test suite locally:
+
+```
+pytest -v
+```
 ---
 
 ## Future Improvements
@@ -170,23 +206,6 @@ Potential extensions include:
 * REST API
 * Data versioning
 * Performance benchmarking
-
----
-
-## Learning Objectives
-
-This project was developed to strengthen practical skills in:
-
-* Python software engineering
-* ETL pipeline development
-* Relational database design
-* SQL
-* PostgreSQL
-* API integration
-* Data validation
-* Repository pattern
-* Automated testing
-* Analytics application development
 
 ---
 
