@@ -47,7 +47,7 @@ jobs:
             -h localhost \
             -U postgres \
             -d purchasing_power_test \
-            -f sql/schema.sql
+            -f src/database/schema.sql
 
       - name: Run tests
         env:
