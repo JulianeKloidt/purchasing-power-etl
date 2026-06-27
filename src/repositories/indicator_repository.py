@@ -27,48 +27,23 @@ class IndicatorRepository:
                     AND indicator_code = %s
                     AND year = %s
                     """,
-                    (
-                        country_code,
-                        indicator_code,
-                        year,
-                    )
+                    (country_code, indicator_code, year)
                 )
 
-                results = cur.fetchall()
+                results = cur.fetchone()
 
-        if len(results) == 0:
+        if results is None:
             raise ValueError(
-                f"No observation found for "
-                f"{country_code}, "
-                f"{indicator_code}, "
-                f"{year}."
+                f"No observation found for {country_code}, "
+                f"{indicator_code}, {year}."
             )
 
-        if len(results) > 1:
-            raise ValueError(
-                f"More than one observation found for "
-                f"{country_code}, "
-                f"{indicator_code}, "
-                f"{year}."
-            )
-
-        value = results[0][0]
+        value = results[0]
 
         if value is None:
             raise ValueError(
                 f"Observation exists but value is missing for "
-                f"{country_code}, "
-                f"{indicator_code}, "
-                f"{year}."
+                f"{country_code}, {indicator_code}, {year}."
             )
 
         return float(value)
-
-
-
-
-    
-        
-        
-    
-        
