@@ -1,6 +1,6 @@
-# Purchasing Power ETL
-
 ![CI](https://github.com/julianekloidt/purchasing-power-etl/actions/workflows/ci.yml/badge.svg)
+
+# Purchasing Power ETL
 
 A Python-based ETL and analytics pipeline that retrieves Purchasing Power Parity (PPP) and Consumer Price Index (CPI) data from the World Bank API, stores the data in PostgreSQL, and provides reusable analytical methods for comparing monetary values across countries and time.
 

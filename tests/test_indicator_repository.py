@@ -14,8 +14,11 @@ from repositories.indicator_repository import IndicatorRepository
 USER = os.getenv("DB_USER")
 
 TEST_DB = DatabaseConnection(
-    dbname="purchasing_power_test",
-    user="your_username",
+    dbname=os.getenv("DB_NAME", "purchasing_power_test"),
+    user=os.getenv("DB_USER", "postgres"),
+    password=os.getenv("DB_PASSWORD", "postgres"),
+    host=os.getenv("DB_HOST", "localhost"),
+    port=int(os.getenv("DB_PORT", 5432)),
 )
 
 def setup_base():
