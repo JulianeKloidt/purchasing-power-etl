@@ -39,6 +39,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Create database schema
+        env:
+          PGPASSWORD: postgres
+        run: |
+          psql \
+            -h localhost \
+            -U postgres \
+            -d purchasing_power_test \
+            -f sql/schema.sql
+
       - name: Run tests
         env:
           DB_NAME: purchasing_power_test

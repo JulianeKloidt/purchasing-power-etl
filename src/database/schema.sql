@@ -15,7 +15,7 @@ CREATE TABLE indicator_values (
     country_code VARCHAR(3) NOT NULL,
     indicator_code TEXT NOT NULL,
     year INTEGER NOT NULL,
-    value DOUBLE PRECISION NOT NULL,
+    value DOUBLE PRECISION,
 
     PRIMARY KEY (
         country_code,
